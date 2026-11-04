@@ -1,0 +1,57 @@
+[project]
+name = "bazaar-contrib-http"
+version = "0.3.0rc1"
+description = "The Bazaar Compute Node HTTP Contrib"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.15"
+dependencies = [
+    "bazaar-core~=0.3.0rc1",
+    "bazaar-contrib-timer~=0.3.0rc1",
+    "pydantic>=2.12.0",
+    "starlette>=0.48.0",
+    "uvicorn>=0.37.0",
+]
+
+[project.entry-points."bazaar_compute_node.contribs"]
+http = "bazaar_contrib_http:http"
+
+[project.urls]
+Repository = "https://github.com/open-bazaar/contrib-http"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:anyio"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.pyright]
+include = ["src", "tests", "scripts"]
+pythonVersion = "3.15"
+pythonPlatform = "All"
+venvPath = "."
+venv = ".venv"
+typeCheckingMode = "basic"
+reportMatchNotExhaustive = "error"
+reportUnreachable = "warning"
+reportUnusedFunction = "warning"
+reportUnusedVariable = "warning"
+
+[tool.ruff.lint]
+extend-select = ["ASYNC"]
+
+[dependency-groups]
+dev = [
+    "bazaar-contrib-timer-wheel~=0.3.0rc1",
+    "blockbuster>=1.5.29,<1.6",
+    "httpx>=0.28.0,<1",
+    "pyright==1.1.414",
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "ruff>=0.9.0",
+]
