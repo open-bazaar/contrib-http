@@ -47,7 +47,7 @@ extend-select = ["ASYNC"]
 
 [dependency-groups]
 dev = [
-    "bazaar-contrib-timer-wheel~=0.3.0rc1",
+    "bazaar-contrib-timer~=0.3.0rc26",
     "blockbuster>=1.5.29,<1.6",
     "httpx>=0.28.0,<1",
     "pyright==1.1.414",

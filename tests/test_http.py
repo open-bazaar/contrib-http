@@ -7,7 +7,7 @@ lazy from contextlib import AsyncExitStack, asynccontextmanager
 
 import httpx
 import pytest
-from bazaar_contrib_timer_wheel import timer_wheel
+from bazaar_contrib_timer.wheel import timer_wheel
 from bazaar_core import Composition, Context, Contrib, ContribEntry, ContribHub
 from pydantic import ValidationError
 from starlette.applications import Starlette
